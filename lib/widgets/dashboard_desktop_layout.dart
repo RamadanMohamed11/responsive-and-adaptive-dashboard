@@ -6,12 +6,14 @@ import 'package:responsive_adaptive_design/widgets/custom_drawer.dart';
 class DashboardDesktopLayout extends StatelessWidget {
   const DashboardDesktopLayout({super.key});
 
-  static const List<ItemModel> items = [
+  static const List<ItemModel> firstItems = [
     ItemModel(imagePath: AppImages.dashboard, title: "Dashboard"),
     ItemModel(imagePath: AppImages.myTransactions, title: "My Transactions"),
     ItemModel(imagePath: AppImages.statistics, title: "Statistics"),
     ItemModel(imagePath: AppImages.walletAccount, title: "Wallet Account"),
     ItemModel(imagePath: AppImages.myInvestments, title: "My Investments"),
+  ];
+  static const List<ItemModel> secondItems = [
     ItemModel(imagePath: AppImages.settings, title: "Setting system"),
     ItemModel(imagePath: AppImages.logout, title: "Logout account"),
   ];
@@ -23,7 +25,12 @@ class DashboardDesktopLayout extends StatelessWidget {
       color: Color(0xffE5E5E5),
       child: Row(
         children: [
-          Expanded(child: CustomDrawer(items: items)),
+          Expanded(
+            child: CustomDrawer(
+              firstItems: firstItems,
+              secondItems: secondItems,
+            ),
+          ),
           SizedBox(width: 15),
           Expanded(flex: 3, child: Container(color: Color(0xffFFFFFF))),
           SizedBox(width: 15),

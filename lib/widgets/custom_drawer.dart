@@ -8,28 +8,33 @@ import 'package:responsive_adaptive_design/widgets/list_tile_item.dart';
 import 'package:responsive_adaptive_design/widgets/user_info_list_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key, required this.items});
+  const CustomDrawer({
+    super.key,
+    required this.firstItems,
+    required this.secondItems,
+  });
 
-  final List<ItemModel> items;
+  final List<ItemModel> firstItems;
+  final List<ItemModel> secondItems;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Color(0xffFFFFFF),
-      child: Column(
-        children: [
-          UserInfoListTile(
-            userInfo: UserInfoModel(
-              title: "Lekan Okeowo",
-              subtitle: "demo@gmail.com",
-              imagePath: AppImages.avatar1,
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: UserInfoListTile(
+              userInfo: UserInfoModel(
+                title: "Lekan Okeowo",
+                subtitle: "demo@gmail.com",
+                imagePath: AppImages.avatar1,
+              ),
             ),
           ),
 
-          ListView.builder(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: items.length - 2,
+          SliverList.builder(
+            itemCount: firstItems.length,
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
@@ -38,18 +43,21 @@ class CustomDrawer extends StatelessWidget {
                   ).changeActiveIndex(index);
                 },
 
-                child: ListTileItem(item: items[index], index: index),
+                child: ListTileItem(item: firstItems[index], index: index),
               );
             },
           ),
-          Spacer(),
-          ListView.builder(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: 2,
-            itemBuilder: (context, index) {
-              return ListTileItem(item: items[index + 5], index: index + 5);
-            },
+          // Spacer(),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              children: [
+                Spacer(),
+                ...secondItems.map(
+                  (item) => ListTileItem(item: item, index: 10),
+                ),
+              ],
+            ),
           ),
         ],
       ),
