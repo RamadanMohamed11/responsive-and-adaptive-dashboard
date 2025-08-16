@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:responsive_adaptive_design/cubits/list_tile_cubit.dart/change_active_list_tile_cubit.dart';
 import 'package:responsive_adaptive_design/widgets/adaptive_layout_widget.dart';
 import 'package:responsive_adaptive_design/widgets/dashboard_desktop_layout.dart';
 import 'package:responsive_adaptive_design/widgets/dashboard_mobile_layout.dart';
@@ -9,10 +11,16 @@ class DashboardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AdaptiveLayoutWidget(
-      mobileBuilder: (context) => const DashboardMobileLayout(),
-      desktopBuilder: (context) => const DashboardDesktopLayout(),
-      tabletBuilder: (context) => const DashboardTabletLayout(),
+    return Scaffold(
+      body: AdaptiveLayoutWidget(
+        mobileLayout: (context) => const DashboardMobileLayout(),
+        desktopLayout:
+            (context) => BlocProvider(
+              create: (context) => ChangeActiveListTileCubit(),
+              child: const DashboardDesktopLayout(),
+            ),
+        tabletLayout: (context) => const DashboardTabletLayout(),
+      ),
     );
   }
 }
