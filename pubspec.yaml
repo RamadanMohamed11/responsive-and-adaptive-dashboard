@@ -38,6 +38,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.2.0
   flutter_bloc: ^9.1.1
+  font_awesome_flutter: ^10.9.0
 
 dev_dependencies:
   flutter_test:
