@@ -1,13 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:responsive_adaptive_design/cubits/all_expenses_cubit/change_active_expense_cubit.dart';
 import 'package:responsive_adaptive_design/models/all_expenses_item_model.dart';
+import 'package:responsive_adaptive_design/models/user_info_model.dart';
 import 'package:responsive_adaptive_design/utils/app_images.dart';
-import 'package:responsive_adaptive_design/widgets/all_expenses_item_widget.dart';
-import 'package:responsive_adaptive_design/widgets/all_expenses_widget.dart';
+import 'package:responsive_adaptive_design/utils/styles.dart';
+import 'package:responsive_adaptive_design/widgets/all_expenses_section.dart';
+import 'package:responsive_adaptive_design/widgets/list_tile_item.dart';
+import 'package:responsive_adaptive_design/widgets/user_info_list_tile.dart';
 
 class AllExpensesAndQuickInvoice extends StatelessWidget {
   const AllExpensesAndQuickInvoice({super.key});
+  static const List<UserInfoModel> users = [
+    UserInfoModel(
+      title: "Madrani Andi",
+      subtitle: "Madraniadi20@gmail.com",
+      imagePath: AppImages.avatar1,
+    ),
+    UserInfoModel(
+      title: "Josua Nunito",
+      subtitle: "Josh Nunito@gmail.com",
+      imagePath: AppImages.avatar2,
+    ),
+    UserInfoModel(
+      title: "Madrani Andi",
+      subtitle: "Madraniadi20@gmail.com",
+      imagePath: AppImages.avatar1,
+    ),
+    UserInfoModel(
+      title: "Josua Nunito",
+      subtitle: "Josh Nunito@gmail.com",
+      imagePath: AppImages.avatar2,
+    ),
+  ];
 
   static const List<AllExpensesItemModel> allExpensesItems = [
     AllExpensesItemModel(
@@ -34,81 +57,69 @@ class AllExpensesAndQuickInvoice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 40, bottom: 32),
-      child: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(20),
-            decoration: ShapeDecoration(
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                side: BorderSide(color: Color(0xfff1f1f1), width: 1),
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-            child: Column(
-              children: [
-                AllExpensesWidget(),
-                SizedBox(height: 16),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            AllExpensesSection(allExpensesItems: allExpensesItems),
+            SizedBox(height: 24),
+            QuickInvoiceSection(users: users),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
-                // SizedBox(height: 8),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Row(
-                    children: [
-                      ...allExpensesItems.map((item) {
-                        int indexOfItem = allExpensesItems.indexOf(item);
-                        if (indexOfItem == 1) {
-                          return Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                              ),
-                              child: GestureDetector(
-                                onTap: () {
-                                  BlocProvider.of<ChangeActiveExpenseCubit>(
-                                    context,
-                                  ).changeActiveExpense(indexOfItem);
-                                },
-                                child: AllExpensesItemWidget(
-                                  item: item,
-                                  index: indexOfItem,
-                                ),
-                              ),
-                            ),
-                          );
-                        } else {
-                          return Expanded(
-                            child: GestureDetector(
-                              onTap: () {
-                                BlocProvider.of<ChangeActiveExpenseCubit>(
-                                  context,
-                                ).changeActiveExpense(indexOfItem);
-                              },
-                              child: AllExpensesItemWidget(
-                                item: item,
-                                index: indexOfItem,
-                              ),
-                            ),
-                          );
-                        }
-                      }),
-                    ],
-                  ),
+class QuickInvoiceSection extends StatelessWidget {
+  const QuickInvoiceSection({super.key, required this.users});
+  final List<UserInfoModel> users;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: ShapeDecoration(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          side: BorderSide(color: Color(0xfff1f1f1), width: 1),
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text("Quick Invoice", style: Styles.styleSemiBold20(context)),
+              Spacer(),
+              Container(
+                decoration: ShapeDecoration(
+                  shape: OvalBorder(),
+                  color: Color(0xffFAFAFA),
                 ),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.add, color: Color(0xff4EB7F2)),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 24),
+          Text("Latest Transaction", style: Styles.styleMedium16(context)),
+          SizedBox(height: 12),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                ...users.map((user) {
+                  return IntrinsicWidth(
+                    child: UserInfoListTile(userInfo: user),
+                  );
+                }),
               ],
             ),
           ),
-          SizedBox(height: 24),
-          // SizedBox(height: 12),
-          Container(
-            decoration: ShapeDecoration(
-              color: Colors.red,
-              shape: RoundedRectangleBorder(
-                side: BorderSide(color: Color(0xfff1f1f1), width: 1),
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-          ),
+          SizedBox(height: 48),
         ],
       ),
     );

@@ -75,35 +75,45 @@ class _AllExpensesItemWidgetState extends State<AllExpensesItemWidget> {
                     Icon(
                       FontAwesomeIcons.chevronRight,
                       color: isActive ? Colors.white : Color(0xff064061),
+                      size: 24,
                     ),
                   ],
                 ),
                 SizedBox(height: 34),
                 // SizedBox(height: 17),
-                Text(
-                  widget.item.title,
-                  style: Styles.styleBold16(context).copyWith(
-                    color: isActive ? Colors.white : Color(0xff064061),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    widget.item.title,
+                    style: Styles.styleBold16(context).copyWith(
+                      color: isActive ? Colors.white : Color(0xff064061),
+                    ),
                   ),
                 ),
                 SizedBox(height: 8),
                 // SizedBox(height: 4),
-                Text(
-                  widget.item.date,
-                  style: Styles.styleRegular14(context).copyWith(
-                    color: isActive ? Color(0xffFAFAFA) : Color(0xffAAAAAA),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    widget.item.date,
+                    style: Styles.styleRegular14(context).copyWith(
+                      color: isActive ? Color(0xffFAFAFA) : Color(0xffAAAAAA),
+                    ),
                   ),
                 ),
                 SizedBox(height: 16),
                 // SizedBox(height: 8),
-                Text(
-                  widget.item.price,
-                  style:
-                      isActive
-                          ? Styles.styleSemiBold24(
-                            context,
-                          ).copyWith(color: Colors.white)
-                          : Styles.styleSemiBold24(context),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    widget.item.price,
+                    style:
+                        isActive
+                            ? Styles.styleSemiBold24(
+                              context,
+                            ).copyWith(color: Colors.white)
+                            : Styles.styleSemiBold24(context),
+                  ),
                 ),
               ],
             ),

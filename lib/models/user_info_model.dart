@@ -3,7 +3,7 @@ class UserInfoModel {
   final String subtitle;
   final String imagePath;
 
-  UserInfoModel({
+  const UserInfoModel({
     required this.title,
     required this.subtitle,
     required this.imagePath,

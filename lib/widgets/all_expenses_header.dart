@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_adaptive_design/utils/styles.dart';
 
-class AllExpensesWidget extends StatefulWidget {
-  const AllExpensesWidget({super.key});
+class AllExpensesHeader extends StatefulWidget {
+  const AllExpensesHeader({super.key});
 
   @override
-  State<AllExpensesWidget> createState() => _AllExpensesWidgetState();
+  State<AllExpensesHeader> createState() => _AllExpensesHeaderState();
 }
 
-class _AllExpensesWidgetState extends State<AllExpensesWidget> {
+class _AllExpensesHeaderState extends State<AllExpensesHeader> {
   static const List<String> dropdownItems = [
     "Monthly",
     "Daily",
