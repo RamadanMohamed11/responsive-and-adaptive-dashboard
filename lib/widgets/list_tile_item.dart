@@ -31,49 +31,49 @@ class _ListTileItemState extends State<ListTileItem> {
       padding: const EdgeInsets.all(20),
       child: SizedBox(
         height: defaultHeight,
-        child: Row(
-          children: [
-            Expanded(
-              child: FittedBox(
-                alignment: Alignment.centerLeft,
-                fit: BoxFit.scaleDown,
-                child: SvgPicture.asset(widget.item.imagePath),
-              ),
-            ),
-            Expanded(
-              flex: 6,
-              child: FittedBox(
-                alignment: Alignment.centerLeft,
-                fit: BoxFit.scaleDown,
-                child: AnimatedDefaultTextStyle(
-                  duration: Duration(milliseconds: 300),
-                  style:
-                      height == defaultHeight
-                          ? Styles.styleBold16(context)
-                          : Styles.styleRegular16(
-                            context,
-                          ).copyWith(color: Color(0xFF064061)),
-                  child: Text(widget.item.title),
+        child: BlocConsumer<ChangeActiveListTileCubit, ListTileStates>(
+          listener: (context, state) {
+            // TODO: implement listener
+            if (state is ListTileChangeActiveIndex) {
+              height = state.newIndex == widget.index ? defaultHeight : 0;
+            }
+          },
+          builder: (context, state) {
+            return Row(
+              children: [
+                Expanded(
+                  child: FittedBox(
+                    alignment: Alignment.centerLeft,
+                    fit: BoxFit.scaleDown,
+                    child: SvgPicture.asset(widget.item.imagePath),
+                  ),
                 ),
-              ),
-            ),
-            BlocListener<ChangeActiveListTileCubit, ListTileStates>(
-              listener: (context, state) {
-                // TODO: implement listener
-                if (state is ListTileChangeActiveIndex) {
-                  setState(() {
-                    height = state.newIndex == widget.index ? defaultHeight : 0;
-                  });
-                }
-              },
-              child: AnimatedContainer(
-                duration: Duration(milliseconds: 300),
-                width: 3.27,
-                height: height,
-                color: Color(0xFF4EB7F2),
-              ),
-            ),
-          ],
+                Expanded(
+                  flex: 6,
+                  child: FittedBox(
+                    alignment: Alignment.centerLeft,
+                    fit: BoxFit.scaleDown,
+                    child: AnimatedDefaultTextStyle(
+                      duration: Duration(milliseconds: 300),
+                      style:
+                          height == defaultHeight
+                              ? Styles.styleBold16(context)
+                              : Styles.styleRegular16(
+                                context,
+                              ).copyWith(color: Color(0xFF064061)),
+                      child: Text(widget.item.title),
+                    ),
+                  ),
+                ),
+                AnimatedContainer(
+                  duration: Duration(milliseconds: 300),
+                  width: 3.27,
+                  height: height,
+                  color: Color(0xFF4EB7F2),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

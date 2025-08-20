@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:responsive_adaptive_design/cubits/all_expenses_cubit/change_active_expense_cubit.dart';
 import 'package:responsive_adaptive_design/models/all_expenses_item_model.dart';
 import 'package:responsive_adaptive_design/utils/app_images.dart';
 import 'package:responsive_adaptive_design/widgets/all_expenses_item_widget.dart';
@@ -54,18 +56,39 @@ class AllExpensesAndQuickInvoice extends StatelessWidget {
                   child: Row(
                     children: [
                       ...allExpensesItems.map((item) {
-                        if (allExpensesItems.indexOf(item) == 1) {
+                        int indexOfItem = allExpensesItems.indexOf(item);
+                        if (indexOfItem == 1) {
                           return Expanded(
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 12,
                               ),
-                              child: AllExpensesItemWidget(item: item),
+                              child: GestureDetector(
+                                onTap: () {
+                                  BlocProvider.of<ChangeActiveExpenseCubit>(
+                                    context,
+                                  ).changeActiveExpense(indexOfItem);
+                                },
+                                child: AllExpensesItemWidget(
+                                  item: item,
+                                  index: indexOfItem,
+                                ),
+                              ),
                             ),
                           );
                         } else {
                           return Expanded(
-                            child: AllExpensesItemWidget(item: item),
+                            child: GestureDetector(
+                              onTap: () {
+                                BlocProvider.of<ChangeActiveExpenseCubit>(
+                                  context,
+                                ).changeActiveExpense(indexOfItem);
+                              },
+                              child: AllExpensesItemWidget(
+                                item: item,
+                                index: indexOfItem,
+                              ),
+                            ),
                           );
                         }
                       }),
