@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_adaptive_design/utils/size_config.dart';
 
 abstract class Styles {
-  static const double percent = 0.1;
+  static const double percent = 0.01;
   static TextStyle styleRegular16(BuildContext context) {
     return GoogleFonts.montserrat(
       color: const Color(0xFF064060),

@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:responsive_adaptive_design/models/all_expenses_item_model.dart';
 import 'package:responsive_adaptive_design/models/item_model.dart';
 import 'package:responsive_adaptive_design/utils/app_images.dart';
-import 'package:responsive_adaptive_design/utils/styles.dart';
 import 'package:responsive_adaptive_design/widgets/all_expenses_and_quick_invoice.dart';
-import 'package:responsive_adaptive_design/widgets/all_expenses_widget.dart';
 import 'package:responsive_adaptive_design/widgets/custom_drawer.dart';
 
 class DashboardDesktopLayout extends StatefulWidget {

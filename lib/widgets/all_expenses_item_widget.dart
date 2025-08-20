@@ -11,7 +11,6 @@ class AllExpensesItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 12),
       decoration: ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(
@@ -39,6 +38,7 @@ class AllExpensesItemWidget extends StatelessWidget {
               ],
             ),
             SizedBox(height: 34),
+            // SizedBox(height: 17),
             Text(
               item.title,
               style: Styles.styleBold16(
@@ -46,6 +46,7 @@ class AllExpensesItemWidget extends StatelessWidget {
               ).copyWith(color: Color(0xff064061)),
             ),
             SizedBox(height: 8),
+            // SizedBox(height: 4),
             Text(
               item.date,
               style: Styles.styleRegular14(
@@ -53,6 +54,7 @@ class AllExpensesItemWidget extends StatelessWidget {
               ).copyWith(color: Color(0xffAAAAAA)),
             ),
             SizedBox(height: 16),
+            // SizedBox(height: 8),
             Text(item.price, style: Styles.styleSemiBold24(context)),
           ],
         ),

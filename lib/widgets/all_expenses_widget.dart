@@ -24,7 +24,6 @@ class _AllExpensesWidgetState extends State<AllExpensesWidget> {
         Text("All Expenses", style: Styles.styleSemiBold20(context)),
         Spacer(),
         Container(
-          padding: EdgeInsets.all(12),
           decoration: ShapeDecoration(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
@@ -35,7 +34,12 @@ class _AllExpensesWidgetState extends State<AllExpensesWidget> {
             value: selectedItem,
             underline: SizedBox(),
             icon: Padding(
-              padding: const EdgeInsets.only(left: 18),
+              padding: const EdgeInsets.only(
+                left: 18,
+                right: 12,
+                top: 12,
+                bottom: 12,
+              ),
               child: FaIcon(
                 FontAwesomeIcons.chevronDown,
                 color: Color(0xff064061),
@@ -47,11 +51,18 @@ class _AllExpensesWidgetState extends State<AllExpensesWidget> {
                     .map(
                       (String value) => DropdownMenuItem<String>(
                         value: value,
-                        child: Text(
-                          value,
-                          style: Styles.styleMedium16(
-                            context,
-                          ).copyWith(color: Color(0xff064061)),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 12,
+                            top: 14,
+                            bottom: 14,
+                          ),
+                          child: Text(
+                            value,
+                            style: Styles.styleMedium16(
+                              context,
+                            ).copyWith(color: Color(0xff064061)),
+                          ),
                         ),
                       ),
                     )
