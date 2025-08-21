@@ -11,14 +11,9 @@ class AllExpensesItemsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("width : ${MediaQuery.of(context).size.width}");
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      child:
-          MediaQuery.of(context).size.width <= 1075
-              ? NonScrollableList(allExpensesItems: allExpensesItems)
-              : ScrollableList(allExpensesItems: allExpensesItems),
-    );
+    return MediaQuery.of(context).size.width <= 1075
+        ? NonScrollableList(allExpensesItems: allExpensesItems)
+        : ScrollableList(allExpensesItems: allExpensesItems);
   }
 }
 
