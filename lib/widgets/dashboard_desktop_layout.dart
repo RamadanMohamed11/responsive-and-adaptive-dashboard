@@ -3,6 +3,7 @@ import 'package:responsive_adaptive_design/models/item_model.dart';
 import 'package:responsive_adaptive_design/utils/app_images.dart';
 import 'package:responsive_adaptive_design/widgets/all_expenses_and_quick_invoice.dart';
 import 'package:responsive_adaptive_design/widgets/custom_drawer.dart';
+import 'package:responsive_adaptive_design/widgets/my_card_and_transaction_history_and_income.dart';
 
 class DashboardDesktopLayout extends StatefulWidget {
   const DashboardDesktopLayout({super.key});
@@ -41,18 +42,7 @@ class _DashboardDesktopLayoutState extends State<DashboardDesktopLayout> {
           Expanded(flex: 3, child: AllExpensesAndQuickInvoice()),
           SizedBox(width: 24),
 
-          Expanded(
-            flex: 2,
-            child: Container(
-              color: Color(0xffFFFFFF),
-              child: Column(
-                children: [
-                  Expanded(flex: 3, child: Container()),
-                  Expanded(child: Container()),
-                ],
-              ),
-            ),
-          ),
+          Expanded(flex: 2, child: MyCardAndTransactionHistoryAndIncome()),
         ],
       ),
     );
