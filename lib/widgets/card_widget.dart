@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:responsive_adaptive_design/utils/app_images.dart';
 import 'package:responsive_adaptive_design/utils/styles.dart';
 
@@ -34,11 +34,7 @@ class CardWidget extends StatelessWidget {
                   context,
                 ).copyWith(color: Colors.white),
               ),
-              trailing: Icon(
-                FontAwesomeIcons.image,
-                size: 24,
-                color: Color(0xff292D32),
-              ),
+              trailing: SvgPicture.asset(AppImages.gallery),
             ),
           ),
           SizedBox(height: 55),

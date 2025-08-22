@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_adaptive_design/utils/styles.dart';
+import 'package:responsive_adaptive_design/widgets/custom_text_field.dart';
 
 class CustomerInfo extends StatelessWidget {
   const CustomerInfo({super.key});
@@ -14,6 +15,7 @@ class CustomerInfo extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Customer name", style: Styles.styleMedium16(context)),
+                CustomTextField(hint: "Type customer name"),
               ],
             ),
           ),
@@ -25,6 +27,7 @@ class CustomerInfo extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Customer Email", style: Styles.styleMedium16(context)),
+                CustomTextField(hint: "Type customer email"),
               ],
             ),
           ),

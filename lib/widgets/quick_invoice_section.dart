@@ -27,7 +27,10 @@ class QuickInvoiceSection extends StatelessWidget {
           QuickInvoiceHeader(),
           SizedBox(height: 24),
           LatestTransaction(users: users),
-          SizedBox(height: 48),
+          SizedBox(height: 24),
+
+          Divider(color: Color(0xffF1F1F1), thickness: 3),
+          SizedBox(height: 24),
           CustomerInfo(),
           SizedBox(height: 24),
           ItemInfo(),
