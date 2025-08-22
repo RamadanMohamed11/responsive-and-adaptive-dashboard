@@ -4,7 +4,17 @@ import 'package:responsive_adaptive_design/utils/app_images.dart';
 import 'package:responsive_adaptive_design/utils/styles.dart';
 
 class CardWidget extends StatelessWidget {
-  const CardWidget({super.key});
+  const CardWidget({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.cardNumber,
+    required this.date,
+  });
+  final String title;
+  final String subtitle;
+  final String cardNumber;
+  final String date;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +33,13 @@ class CardWidget extends StatelessWidget {
             padding: const EdgeInsets.only(top: 10, left: 21, right: 59),
             child: ListTile(
               title: Text(
-                "Name card",
+                title,
                 style: Styles.styleRegular16(
                   context,
                 ).copyWith(color: Colors.white),
               ),
               subtitle: Text(
-                "Syah Bandi",
+                subtitle,
                 style: Styles.styleMedium20(
                   context,
                 ).copyWith(color: Colors.white),
@@ -44,7 +54,7 @@ class CardWidget extends StatelessWidget {
               padding: const EdgeInsets.only(right: 24),
               child: Text(
                 textAlign: TextAlign.end,
-                "0918 8124 0042 8129",
+                cardNumber,
                 style: Styles.styleSemiBold24(
                   context,
                 ).copyWith(color: Colors.white),
@@ -58,7 +68,7 @@ class CardWidget extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(right: 24, bottom: 27),
               child: Text(
-                "12/20 - 124",
+                date,
                 style: Styles.styleRegular16(
                   context,
                 ).copyWith(color: Colors.white),

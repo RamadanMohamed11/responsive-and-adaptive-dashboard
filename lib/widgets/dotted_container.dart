@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:responsive_adaptive_design/cubits/dotted_cubit/change_active_dot_cubit.dart';
 import 'package:responsive_adaptive_design/cubits/dotted_cubit/change_active_dot_cubit_state.dart';
+import 'package:responsive_adaptive_design/cubits/dotted_cubit/change_active_dot_cubit.dart';
 
 class DottedContainer extends StatefulWidget {
   const DottedContainer({super.key, required this.index});
