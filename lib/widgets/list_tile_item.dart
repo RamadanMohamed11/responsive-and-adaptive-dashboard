@@ -28,7 +28,7 @@ class _ListTileItemState extends State<ListTileItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(10),
       child: SizedBox(
         height: defaultHeight,
         child: BlocConsumer<ChangeActiveListTileCubit, ListTileStates>(

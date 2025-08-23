@@ -1,11 +1,6 @@
-import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:responsive_adaptive_design/cubits/dotted_cubit/change_active_dot_cubit_state.dart';
-import 'package:responsive_adaptive_design/cubits/dotted_cubit/change_active_dot_cubit.dart';
 import 'package:responsive_adaptive_design/models/transaction_item_model.dart';
 import 'package:responsive_adaptive_design/utils/styles.dart';
-import 'package:responsive_adaptive_design/widgets/card_widget.dart';
 import 'package:responsive_adaptive_design/widgets/dotted_container.dart';
 import 'package:responsive_adaptive_design/widgets/expandable_page_view_cards.dart';
 import 'package:responsive_adaptive_design/widgets/income_section.dart';
@@ -20,16 +15,19 @@ class MyCardAndTransactionHistoryAndIncome extends StatelessWidget {
       title: "Cash Withdrawal",
       subtitle: "13 Apr, 2022 at 3:30 PM",
       price: "\$20,129",
+      isWithdrawn: true,
     ),
     TransactionItemModel(
       title: "Landing Page project",
       subtitle: "13 Apr, 2022 at 3:30 PM",
       price: "\$2,000",
+      isWithdrawn: false,
     ),
     TransactionItemModel(
       title: "Juni Mobile App project",
       subtitle: "13 Apr, 2022 at 3:30 PM",
       price: "\$20,129",
+      isWithdrawn: false,
     ),
   ];
   static const List<DottedContainer> dottedContainers = <DottedContainer>[
@@ -58,7 +56,7 @@ class MyCardAndTransactionHistoryAndIncome extends StatelessWidget {
                   ExpandablePageViewCards(),
                   SizedBox(height: 19),
                   Row(children: [...dottedContainers]),
-                  SizedBox(height: 20),
+                  Divider(color: Color(0xffF1F1F1), thickness: 3, height: 40),
                   TransactionHeader(),
                   SizedBox(height: 20),
                   Text(

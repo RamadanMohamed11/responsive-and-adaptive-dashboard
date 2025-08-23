@@ -28,9 +28,14 @@ class TransactionCardListTile extends StatelessWidget {
         ),
         trailing: Text(
           transactionItemModel.price,
-          style: Styles.styleSemiBold20(
-            context,
-          ).copyWith(color: Color(0xff7DD97B)),
+          style:
+              transactionItemModel.isWithdrawn
+                  ? Styles.styleSemiBold20(
+                    context,
+                  ).copyWith(color: Color(0xffF3735E))
+                  : Styles.styleSemiBold20(
+                    context,
+                  ).copyWith(color: Color(0xff7DD97B)),
         ),
       ),
     );
