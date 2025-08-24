@@ -11,7 +11,7 @@ class AllExpensesItemsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MediaQuery.of(context).size.width <= 1075
+    return MediaQuery.of(context).size.width <= 700
         ? NonScrollableList(allExpensesItems: allExpensesItems)
         : ScrollableList(allExpensesItems: allExpensesItems);
   }

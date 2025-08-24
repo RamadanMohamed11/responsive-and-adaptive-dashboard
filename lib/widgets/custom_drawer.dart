@@ -8,18 +8,24 @@ import 'package:responsive_adaptive_design/widgets/list_tile_item.dart';
 import 'package:responsive_adaptive_design/widgets/user_info_list_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({
-    super.key,
-    required this.firstItems,
-    required this.secondItems,
-  });
+  const CustomDrawer({super.key});
 
-  final List<ItemModel> firstItems;
-  final List<ItemModel> secondItems;
+  static const List<ItemModel> firstItems = [
+    ItemModel(imagePath: AppImages.dashboard, title: "Dashboard"),
+    ItemModel(imagePath: AppImages.myTransactions, title: "My Transactions"),
+    ItemModel(imagePath: AppImages.statistics, title: "Statistics"),
+    ItemModel(imagePath: AppImages.walletAccount, title: "Wallet Account"),
+    ItemModel(imagePath: AppImages.myInvestments, title: "My Investments"),
+  ];
+  static const List<ItemModel> secondItems = [
+    ItemModel(imagePath: AppImages.settings, title: "Setting system"),
+    ItemModel(imagePath: AppImages.logout, title: "Logout account"),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.sizeOf(context).width * 0.75,
       color: Color(0xffFFFFFF),
       child: CustomScrollView(
         slivers: [

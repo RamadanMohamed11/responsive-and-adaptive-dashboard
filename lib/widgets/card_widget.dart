@@ -18,64 +18,66 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: Color(0xff4EB7F2),
-        image: DecorationImage(
-          image: AssetImage(AppImages.cardBackground),
-          fit: BoxFit.cover,
+    return AspectRatio(
+      aspectRatio: 420 / 215,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: Color(0xff4EB7F2),
+          image: DecorationImage(
+            image: AssetImage(AppImages.cardBackground),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 10, left: 21, right: 59),
-            child: ListTile(
-              title: Text(
-                title,
-                style: Styles.styleRegular16(
-                  context,
-                ).copyWith(color: Colors.white),
-              ),
-              subtitle: Text(
-                subtitle,
-                style: Styles.styleMedium20(
-                  context,
-                ).copyWith(color: Colors.white),
-              ),
-              trailing: SvgPicture.asset(AppImages.gallery),
-            ),
-          ),
-          SizedBox(height: 55),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 24),
-              child: Text(
-                textAlign: TextAlign.end,
-                cardNumber,
-                style: Styles.styleSemiBold24(
-                  context,
-                ).copyWith(color: Colors.white),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10, left: 21, right: 59),
+              child: ListTile(
+                title: Text(
+                  title,
+                  style: Styles.styleRegular16(
+                    context,
+                  ).copyWith(color: Colors.white),
+                ),
+                subtitle: Text(
+                  subtitle,
+                  style: Styles.styleMedium20(
+                    context,
+                  ).copyWith(color: Colors.white),
+                ),
+                trailing: SvgPicture.asset(AppImages.gallery),
               ),
             ),
-          ),
-          SizedBox(height: 12),
-          Align(
-            alignment: Alignment.bottomRight,
-
-            child: Padding(
-              padding: const EdgeInsets.only(right: 24, bottom: 27),
-              child: Text(
-                date,
-                style: Styles.styleRegular16(
-                  context,
-                ).copyWith(color: Colors.white),
+            Spacer(),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 24),
+                child: Text(
+                  textAlign: TextAlign.end,
+                  cardNumber,
+                  style: Styles.styleSemiBold24(
+                    context,
+                  ).copyWith(color: Colors.white),
+                ),
               ),
             ),
-          ),
-        ],
+            SizedBox(height: 12),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 24, bottom: 20),
+                child: Text(
+                  date,
+                  style: Styles.styleRegular16(
+                    context,
+                  ).copyWith(color: Colors.white),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

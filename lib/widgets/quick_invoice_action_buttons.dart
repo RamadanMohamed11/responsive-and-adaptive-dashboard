@@ -13,7 +13,7 @@ class QuickInvoiceActionButtons extends StatelessWidget {
           child: CustomButton(
             title: "Add more details",
             backgroundColor: Colors.white,
-            edgeInsets: EdgeInsets.all(20.0),
+            edgeInsets: EdgeInsets.all(15.0),
             titleColor: Color(0xff4EB7F2),
           ),
         ),
@@ -22,7 +22,7 @@ class QuickInvoiceActionButtons extends StatelessWidget {
           child: CustomButton(
             title: "Send Money",
             backgroundColor: Color(0xff4EB7F2),
-            edgeInsets: EdgeInsets.symmetric(horizontal: 75.5, vertical: 16),
+            edgeInsets: EdgeInsets.symmetric(horizontal: 50, vertical: 16),
           ),
         ),
       ],
