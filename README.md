@@ -1,16 +1,39 @@
-# responsive_adaptive_design
+# Responsive Adaptive Design Dashboard (Flutter)
 
-A new Flutter project.
+A modern, responsive dashboard application built with Flutter. This project demonstrates adaptive layouts for desktop, tablet, and mobile devices, featuring custom widgets, dynamic charts, and a seamless user experience across all screen sizes.
+
+## Features
+
+- **Adaptive Layouts:** Automatically adjusts UI for desktop, tablet, and mobile using a custom `AdaptiveLayoutWidget`.
+- **Custom Widgets:** Includes reusable components such as drawers, cards, and charts.
+- **Dynamic Charts:** Visualize data with interactive and responsive chart widgets.
+- **State Management:** Clean architecture with state management for interactive elements.
+- **Modern UI:** Clean, professional design with smooth animations and transitions.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/RamadanMohamed11/responsive-and-adaptive-dashboard.git
+   cd responsive-and-adaptive-dashboard
+   ```
 
-A few resources to get you started if this is your first Flutter project:
+2. **Install dependencies:**
+   ```sh
+   flutter pub get
+   ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+3. **Run the app:**
+   ```sh
+   flutter run
+   ```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Project Structure
+
+- `lib/views/` – Main views and screens
+- `lib/widgets/` – Custom widgets and layout components
+- `lib/utils/` – Styles and utility functions
+
+---
+
+**Made with Flutter ❤️**
