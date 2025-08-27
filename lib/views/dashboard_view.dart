@@ -12,7 +12,7 @@ class DashboardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:
-          MediaQuery.of(context).size.width < 600 ? AppBar(elevation: 0) : null,
+          MediaQuery.of(context).size.width < 800 ? AppBar(elevation: 0) : null,
       drawer: CustomDrawer(),
       body: AdaptiveLayoutWidget(
         mobileLayout: (context) => const DashboardMobileLayout(),
