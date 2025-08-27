@@ -34,6 +34,21 @@ A modern, responsive dashboard application built with Flutter. This project demo
 - `lib/widgets/` – Custom widgets and layout components
 - `lib/utils/` – Styles and utility functions
 
+
+## Screenshots
+
+### Desktop Layout
+![Desktop Screenshot](assets/screenshots/desktop.png)
+
+### Tablet Layout
+![Tablet Screenshot](assets/screenshots/tablet.png)
+
+### Mobile Layout
+![Mobile Screenshot](assets/screenshots/mobile.png)
+
+### Mobile Drawer
+![Mobile Screenshot](assets/screenshots/mobile_drawer.png)
+
 ---
 
 **Made with Flutter ❤️**
