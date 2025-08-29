@@ -67,7 +67,7 @@ class CardWidget extends StatelessWidget {
             Align(
               alignment: Alignment.bottomRight,
               child: Padding(
-                padding: const EdgeInsets.only(right: 24, bottom: 20),
+                padding: const EdgeInsets.only(right: 24, bottom: 27),
                 child: Text(
                   date,
                   style: Styles.styleRegular16(

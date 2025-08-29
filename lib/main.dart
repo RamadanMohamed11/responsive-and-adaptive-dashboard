@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,7 +9,12 @@ import 'package:responsive_adaptive_design/cubits/list_tile_cubit.dart/change_ac
 import 'package:responsive_adaptive_design/views/dashboard_view.dart';
 
 void main() {
-  runApp(ResponsiveDashboard());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => ResponsiveDashboard(),
+    ),
+  );
 }
 
 class ResponsiveDashboard extends StatelessWidget {
